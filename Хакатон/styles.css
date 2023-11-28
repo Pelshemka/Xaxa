@@ -1,0 +1,42 @@
+
+div {
+	background-color:#293757;
+	width:20%;
+	text-align:center;
+	margin: 0.5% auto;
+	padding:0.5%;
+  
+}
+h1 {
+	text-align:center;
+}
+div  a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.radio-group {
+            display: flex;
+            justify-content: space-between;
+			background-color:#ffffff;
+			width:100%;
+        }
+        /* Style for unchecked state */
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"] + label {
+			width:20%;
+     background-color:#293757;
+	font-size:200%;
+	color:#ffffff;
+	width:25%;
+	text-align:center;
+	margin: 0.5% auto;
+	padding:0.5%;
+        }
+        /* Style for checked state */
+        input[type="radio"]:checked + label {
+            background: #bbbf;
+        }
+
