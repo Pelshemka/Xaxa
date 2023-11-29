@@ -1,5 +1,5 @@
 
-div {
+.main div {
 	background-color:#293757;
 	width:20%;
 	text-align:center;
@@ -7,7 +7,7 @@ div {
 	padding:0.5%;
   
 }
-h1 {
+.main h1, h1.main, .lessons h1{
 	text-align:center;
 }
 div  a{
@@ -15,17 +15,26 @@ div  a{
 	text-decoration: none;
 }
 
-.radio-group {
+.lessons div{
+	background-color:#293757;
+	width:20%;
+	text-align:center;
+	font-size:150%;
+	padding:0.5%;
+}
+
+
+.categ {
             display: flex;
             justify-content: space-between;
 			background-color:#ffffff;
 			width:95%;
         }
       
-        input[type="radio"] {
+   .categ     input[type="radio"] {
             display: none;
         }
-        input[type="radio"] + label {
+    .categ    input[type="radio"] + label {
 			width:20%;
      background-color:#293757;
 	font-size:200%;
@@ -49,32 +58,78 @@ div  a{
   color: #ffffff;
 	text-decoration: none;
 }
-table {
-	background-color:;
+table.course {
+	margin:3%;
 	border-collapse: collapse;
 }
-td {
+table.course a{
+	text-decoration: none;
+	color: #293757;
+}
+table.course td {
 	color: #293757;
 	font-size: 75%;
 	padding:1%;
 	transition: padding 0.5s ease, transform 0.5s ease;
+	box-sizing: border-box
 
 }
 
-td:nth-child(even) {
+table.course td:nth-child(even) {
 	background-color: #b6c2dd;
 }
-td:nth-child(2) {
+table.course td:nth-child(2) {
 	width:10%;
 }
-tr {
+table.course tr {
 	transition: transform 0.3s ease;
 }
-td:hover {
+table.course td:hover {
 	padding: 2%;
 }
-tr:hover {
+table.course tr:hover {
 	color: #293757;
 	background-color: #9babd0;
 	transform: scale(1.1);
 }
+
+
+.reg {
+  padding: 0.5%;
+  background-color: #b6c2dd;
+  box-sizing:border-box;
+}
+
+/* Full-width input fields */
+.reg input[type=text], .reg input[type=password], .reg input[type=email] {
+  width: 95%;
+  padding: 0.5%;
+  margin: 1%;
+  border: none;
+  background-color: #e1effa;
+}
+
+.reg input[type=text]:focus, .reg input[type=password]:focus, .reg input[type=email]:focus {
+   background-color: #d2e8fa;
+}
+
+.reg input[type=submit] {
+  background-color: #c8d2e8;
+  color: #ffffff;
+  padding: 1%;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.reg input[type=submit]:hover {
+  border: 1px solid #ffffff;
+}
+.reg input[type=checkbox]{
+  margin:2%;
+}
+.reg label {
+	font-size:150%;
+	padding:2%;
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Навчальна платформа</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+<a class="arrow-button" href="index.html">←</a>
+
+<h1>Зареєструйтесь!</h1>
+<form class="reg" action="/submit" method="post" target="_blank">
+
+	
+	<label for="name">Ім'я користувача </label> <br>
+	<input type="text" id="name" name="name" required><br>
+
+	<label for="email">Email</label><br>
+	<input type="email" id="email" name="email" required><br>
+
+	<label for="password">Пароль </label> <br>
+	<input type="password" id="password" name="password" required><br>
+
+	<input type="checkbox" id="adm" name="adm">
+	<label for="adm"> Я адміністратор</label>
+
+	<br><br>
+	<div class="g-recaptcha" data-sitekey="6Lf6RSApAAAAANhqAYoPLI9-mn86aprFzLtygJn5"></div>
+	<br><br>
+
+
+<input type="submit" value="Відправити">
+</form>
+
+
+</body>
+</html>
