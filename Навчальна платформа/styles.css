@@ -22,6 +22,9 @@ div  a{
 	font-size:150%;
 	padding:0.5%;
 }
+ div.disabled{
+	background-color:#d8d8d8;
+}
 
 
 .categ {
@@ -45,7 +48,7 @@ div  a{
 	padding:0.5%;
         }
       
-        input[type="radio"]:checked + label {
+    .categ    input[type="radio"]:checked + label {
             background: #9babd0;
         }
 	.arrow-button {
@@ -100,7 +103,6 @@ table.course tr:hover {
   box-sizing:border-box;
 }
 
-/* Full-width input fields */
 .reg input[type=text], .reg input[type=password], .reg input[type=email] {
   width: 95%;
   padding: 0.5%;
@@ -113,7 +115,7 @@ table.course tr:hover {
    background-color: #d2e8fa;
 }
 
-.reg input[type=submit] {
+.reg input[type=submit], .question button {
   background-color: #c8d2e8;
   color: #ffffff;
   padding: 1%;
@@ -133,3 +135,55 @@ table.course tr:hover {
 	padding:2%;
 }
 
+.correct  {
+		background-color:#92db99;
+}
+
+.wr {
+	background-color:#d58980;
+}
+
+.question	{
+	box-sizing:border-box;
+	background-color:#f6f6f6;
+	margin:0.5%;
+	padding:0.5%;
+}
+.question img {
+	width:30%;
+	height:50%;
+	padding:0.5%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;     
+}
+.question h3{
+	background-color:#ececec;
+	width:80%;
+	text-align:center;
+	margin: 0.5% auto;
+	padding:0.5%;
+}
+
+.answ {
+            display: flex;
+        }
+      
+   .answ     input[type="radio"] {
+            display: none;
+        }
+    .answ   input[type="radio"] + label {
+	width:60%;
+    background-color:#d8d8d8;
+	font-size:100%;
+	color:#293757;
+	text-align:center;
+	margin: 0.5% auto;
+	padding:0.5%;
+        }
+      
+     .answ    input[type="radio"]:checked + label {
+            background-color: #9babd0;
+        }
+		
+		

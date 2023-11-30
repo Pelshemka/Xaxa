@@ -8,189 +8,146 @@
 <a class="arrow-button" href="index.html">←</a>
 
 <h1 class="main">Тест 1.1</h1>
-<div class="container">
-    <h1>Quiz App</h1>
-    <div id="quiz"></div>
-    <div id="result" class="result"></div>
-    <button id="submit" class="button">Submit</button>
-    <button id="retry" class="button hide">Retry</button>
-    <button id="showAnswer" class="button hide">Show Answer</button>
-  </div>
-  <script>
-  const quizData = [
-  {
-    question: 'What is the capital of France?',
-    options: ['Paris', 'London', 'Berlin', 'Madrid'],
-    answer: 'Paris',
-  },
-  {
-    question: 'What is the largest planet in our solar system?',
-    options: ['Mars', 'Saturn', 'Jupiter', 'Neptune'],
-    answer: 'Jupiter',
-  },
-  {
-    question: 'Which country won the FIFA World Cup in 2018?',
-    options: ['Brazil', 'Germany', 'France', 'Argentina'],
-    answer: 'France',
-  },
-  {
-    question: 'What is the tallest mountain in the world?',
-    options: ['Mount Everest', 'K2', 'Kangchenjunga', 'Makalu'],
-    answer: 'Mount Everest',
-  },
-  {
-    question: 'Which is the largest ocean on Earth?',
-    options: [
-      'Pacific Ocean',
-      'Indian Ocean',
-      'Atlantic Ocean',
-      'Arctic Ocean',
-    ],
-    answer: 'Pacific Ocean',
-  },
-  {
-    question: 'What is the chemical symbol for gold?',
-    options: ['Au', 'Ag', 'Cu', 'Fe'],
-    answer: 'Au',
-  },
-  {
-    question: 'Who painted the Mona Lisa?',
-    options: [
-      'Pablo Picasso',
-      'Vincent van Gogh',
-      'Leonardo da Vinci',
-      'Michelangelo',
-    ],
-    answer: 'Leonardo da Vinci',
-  },
+<h1 class="main">Допоможіть людям розібратися в типах корупції</h1>
 
-  
-];
+<div class="question">
+<h3>Я, працюючи в оборонному секторі, зіткнувся з корупцією, коли побачиkf,
+ що контракти на закупівлю обладнання або послуг виграють компанії, які пропонують
+ товари або послуги нижчої якості за вищу ціну, але мають “зв’язки” з високопоставленими особами.</h3>	
+ <img src="2.jpg">
+    <div class="answ" id="a11">
+	    <span id='r11'></span>
+        <input type='radio' name='1' id='11' /> 
+		<label for='11'>Відкат</label>
+    </div>
+	<div class="answ" id="a12">
+        <span id='r12'></span>
+        <input type='radio' name='1' id='12' /> 
+		<label for='12'>Виплата за сприяння</label>
+    </div>
+    <div class="answ" id="a13">
+        <span id='r13'></span>
+        <input type='radio' name='1' id='13' /> 
+		<label for='13'>Розкрадання</label>
+    </div>
+    <button onclick='submit_1()'>Перевірити</button>
+	
+</div>
 
-const quizContainer = document.getElementById('quiz');
-const resultContainer = document.getElementById('result');
-const submitButton = document.getElementById('submit');
-const retryButton = document.getElementById('retry');
-const showAnswerButton = document.getElementById('showAnswer');
+<div class="question">
+<h3>Я помітив, що деякі ресурси або обладнання, 
+призначені для використання в оборонних цілях, 
+були використані для особистих потреб або продані третім особам.</h3>	
+<img src="3.jpg">
+    <div class="answ" id="a21">
+        <span id='r21'></span>
+        <input type='radio' name='2' id='21' /> 
+		<label for='21'>Відмивання грошей</label>
+    </div>
+	<div class="answ" id="a22">
+        <span id='r22'></span>
+        <input type='radio' name='2' id='22' /> 
+		<label for='22'>Розкрадання</label>
+    </div>
+    <div class="answ" id="a23">
+        <span id='r23'></span>
+        <input type='radio' name='2' id='23' /> 
+		<label for='23'>Виплати за сприяння</label>
+    </div>
+    <button onclick='submit_2()'>Перевірити</button>
+	
+</div>
 
-let currentQuestion = 0;
-let score = 0;
-let incorrectAnswers = [];
+<div class="question">
+<h3>Я дізнався, що мій колега отримав підвищення або
+ був призначений на вищу посаду не за заслугами, а через 
+ надання хабара керівництву.</h3>	
+ <img src="1.jpg">
+    <div class="answ" id="a31">
+		<span id='r31'></span>
+        <input type='radio' name='3' id='31' /> 
+		<label for='31'>Непотизм</label>
+    </div>
+	<div class="answ" id="a32">
+        <span id='r32'></span>
+        <input type='radio' name='3' id='32' /> 
+		<label for='32'>Патронатство</label>
+    </div>
+    <div class="answ" id="a33">
+        <span id='r33'></span>
+        <input type='radio' name='3' id='33' /> 
+		<label for='33'>Хабарництво</label>
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-function displayQuestion() {
-  const questionData = quizData[currentQuestion];
-
-  const questionElement = document.createElement('div');
-  questionElement.className = 'question';
-  questionElement.innerHTML = questionData.question;
-
-  const optionsElement = document.createElement('div');
-  optionsElement.className = 'options';
-
-  const shuffledOptions = [...questionData.options];
-  shuffleArray(shuffledOptions);
-
-  for (let i = 0; i < shuffledOptions.length; i++) {
-    const option = document.createElement('label');
-    option.className = 'option';
-
-    const radio = document.createElement('input');
-    radio.type = 'radio';
-    radio.name = 'quiz';
-    radio.value = shuffledOptions[i];
-
-    const optionText = document.createTextNode(shuffledOptions[i]);
-
-    option.appendChild(radio);
-    option.appendChild(optionText);
-    optionsElement.appendChild(option);
-  }
-
-  quizContainer.innerHTML = '';
-  quizContainer.appendChild(questionElement);
-  quizContainer.appendChild(optionsElement);
-}
-
-function checkAnswer() {
-  const selectedOption = document.querySelector('input[name="quiz"]:checked');
-  if (selectedOption) {
-    const answer = selectedOption.value;
-    if (answer === quizData[currentQuestion].answer) {
-      score++;
-    } else {
-      incorrectAnswers.push({
-        question: quizData[currentQuestion].question,
-        incorrectAnswer: answer,
-        correctAnswer: quizData[currentQuestion].answer,
-      });
-    }
-    currentQuestion++;
-    selectedOption.checked = false;
-    if (currentQuestion < quizData.length) {
-      displayQuestion();
-    } else {
-      displayResult();
-    }
-  }
-}
-
-function displayResult() {
-  quizContainer.style.display = 'none';
-  submitButton.style.display = 'none';
-  retryButton.style.display = 'inline-block';
-  showAnswerButton.style.display = 'inline-block';
-  resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
-}
-
-function retryQuiz() {
-  currentQuestion = 0;
-  score = 0;
-  incorrectAnswers = [];
-  quizContainer.style.display = 'block';
-  submitButton.style.display = 'inline-block';
-  retryButton.style.display = 'none';
-  showAnswerButton.style.display = 'none';
-  resultContainer.innerHTML = '';
-  displayQuestion();
-}
-
-function showAnswer() {
-  quizContainer.style.display = 'none';
-  submitButton.style.display = 'none';
-  retryButton.style.display = 'inline-block';
-  showAnswerButton.style.display = 'none';
-
-  let incorrectAnswersHtml = '';
-  for (let i = 0; i < incorrectAnswers.length; i++) {
-    incorrectAnswersHtml += `
-      <p>
-        <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
-        <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
-        <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
-      </p>
-    `;
-  }
-
-  resultContainer.innerHTML = `
-    <p>You scored ${score} out of ${quizData.length}!</p>
-    <p>Incorrect Answers:</p>
-    ${incorrectAnswersHtml}
-  `;
-}
-
-submitButton.addEventListener('click', checkAnswer);
-retryButton.addEventListener('click', retryQuiz);
-showAnswerButton.addEventListener('click', showAnswer);
-
-displayQuestion();
-
+    </div>
+    <button onclick='submit_3()'>Перевірити</button>
+	
+</div>
+<script>
+	function submit_1() {
+    	if (document.getElementById('11').checked) {
+        document.getElementById('r11').innerHTML = 'Правильно!'
+		show_answer1()
+        } 
+        if (document.getElementById('12').checked) {
+		document.getElementById('r12').innerHTML = 'Неправильно!'
+		document.getElementById('a12').classList.add('wr');
+        show_answer1()
+ 		}
+        if (document.getElementById('13').checked) {
+		document.getElementById('r13').innerHTML = 'Неправильно!'
+		document.getElementById('a13').classList.add('wr');
+        show_answer1()	
+        }
+     }
+    function show_answer1() {
+		document.getElementById('a11').classList.add('correct');
+		document.getElementById('r11').innerHTML = 'Правильно!' ; 
+        }
+		
+		function submit_2() {
+    	if (document.getElementById('21').checked) {
+		document.getElementById('r21').innerHTML = 'Неправильно!'
+		document.getElementById('a21').classList.add('wr');
+        show_answer2()
+        } 
+        if (document.getElementById('22').checked) {
+		document.getElementById('r22').innerHTML = 'Правильно!'
+		show_answer2()
+ 		}
+        if (document.getElementById('23').checked) {
+		document.getElementById('r23').innerHTML = 'Неправильно!'
+		document.getElementById('a23').classList.add('wr');
+        show_answer2()	
+        }
+     }
+    function show_answer2() {
+		document.getElementById('a22').classList.add('correct');
+		document.getElementById('r22').innerHTML = 'Правильно!' ; 
+        }
+		
+		function submit_3() {
+    	if (document.getElementById('31').checked) {
+		document.getElementById('r31').innerHTML = 'Неправильно!'
+		document.getElementById('a31').classList.add('wr');
+        show_answer3()
+        } 
+        if (document.getElementById('32').checked) {
+		document.getElementById('r32').innerHTML = 'Неправильно!'
+		document.getElementById('a32').classList.add('wr');
+        show_answer3()
+ 		}
+        if (document.getElementById('33').checked) {
+        document.getElementById('r33').innerHTML = 'Правильно!'
+		show_answer3()		
+        }
+     }
+    function show_answer3() {
+		document.getElementById('a33').classList.add('correct');
+		document.getElementById('r33').innerHTML = 'Правильно!' ; 
+        }
+     
 </script>
+
+
 </body>
 </html>
